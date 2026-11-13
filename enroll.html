@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Swar & Strings Music Academy - Book Trial</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- Top Header -->
+    <header>
+        <h1>Swar & Strings Music Academy</h1>
+        <p>Book Your Free 1-on-1 Vocal & Instrument Assessment</p>
+    </header>
+
+    <!-- Navigation Menu -->
+    <nav>
+        <a href="index.html">Home</a>
+        <a href="index.html#courses">Courses</a>
+        <a href="batches.html">Batches & Fees</a>
+        <a href="enroll.html">Book Free Trial</a>
+    </nav>
+
+    <!-- Main Content -->
+    <main>
+
+        <!-- Student Registration / Trial Booking Form -->
+        <form action="#" method="post">
+            <h2 align="center">Trial Session Registration</h2>
+            <p align="center">Fill out your musical preferences below to schedule a demo session.</p>
+            <hr>
+
+            <!-- Text, Email, and Phone Inputs -->
+            <label for="fullname">Student Full Name:</label>
+            <input type="text" id="fullname" name="fullname" 
+                   placeholder="Enter your full name" required>
+
+            <label for="email">Email Address:</label>
+            <input type="email" id="email" name="email" 
+                   placeholder="Enter your email address" required>
+
+            <label for="phone">Phone / WhatsApp Number:</label>
+            <input type="tel" id="phone" name="phone" 
+                   placeholder="+91 98765 43210" required>
+
+            <!-- Course Selection Dropdown -->
+            <label for="course">Select Primary Program:</label>
+            <select id="course" name="course" required>
+                <option value="">-- Choose a Training Track --</option>
+                <option value="playback">Hindi Playback & Warm Tone Vocal</option>
+                <option value="classical">Hindustani Classical & Tanpura Riyaz</option>
+                <option value="guitar">Acoustic Guitar & Accompaniment</option>
+                <option value="combo">Vocal + Acoustic Guitar Combo</option>
+            </select>
+
+            <!-- Radio Buttons for Learning Mode -->
+            <label>Preferred Learning Mode:</label>
+            <input type="radio" name="mode" value="Offline Studio" required> Offline Studio (Indore)
+            <input type="radio" name="mode" value="Live Online"> Live 1-on-1 Online
+
+            <!-- Checkboxes for Specific Vocal/Musical Goals -->
+            <label>Areas You Want to Improve (Select all that apply):</label>
+            <input type="checkbox" name="goal" value="Warm Tone"> Warm & Soft Vocal Tone<br>
+            <input type="checkbox" name="goal" value="Scale Matching"> Tanpura Scale & Pitch Accuracy<br>
+            <input type="checkbox" name="goal" value="Breath Control"> Breath Control & High Notes<br>
+            <input type="checkbox" name="goal" value="Guitar Strumming"> Guitar Chords & Rhythm
+
+            <!-- Multiline Textarea -->
+            <label for="notes">Favorite Singers / Songs or Current Experience:</label>
+            <textarea id="notes" name="notes" rows="4" cols="30" 
+                      placeholder="E.g., I love Arijit Singh, Lucky Ali & soulful melodies. Currently practicing humming and NG vocal exercises..."></textarea>
+
+            <br><br>
+            <!-- Submit & Reset Buttons -->
+            <button type="submit" style="width: 100%;">Confirm Free Trial Booking</button>
+            <br><br>
+            <input type="reset" value="Clear Form" style="width: 100%; cursor: pointer;">
+        </form>
+
+        <!-- Studio Contact & Address Section -->
+        <section align="center">
+            <h2>Visit Our Studio or Reach Out Directly</h2>
+            <address>
+                <b>Swar & Strings Acoustic Studio</b><br>
+                2nd Floor, Harmony Plaza, Near Sapna Sangeeta Road,<br>
+                Indore, Madhya Pradesh - 452001, India
+            </address>
+            <p>
+                <b>Studio Helpline:</b> +91 98765 43210<br>
+                <b>Email:</b> contact@swarandstrings.com
+            </p>
+            <a href="mailto:contact@swarandstrings.com">
+                <button>Send Direct Email</button>
+            </a>
+            <br><br>
+            <a href="https://www.google.com/maps" target="_blank">Open Studio Location on Google Maps</a>
+        </section>
+
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <p>© 2026 Swar & Strings Music Academy | Indore, Madhya Pradesh</p>
+        <p>All Rights Reserved</p>
+    </footer>
+
+</body>
+</html>
