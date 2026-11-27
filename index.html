@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SwarSetu Music Academy</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header class="site-header">
+    <div class="nav-row">
+      <a href="#top" class="brand">Swar<span>Setu</span></a>
+      <nav class="nav-links">
+        <a href="#courses">Courses</a>
+        <a href="#faq">FAQ</a>
+        <a href="#trial" class="btn">Book Trial</a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="top">
+    <section class="hero">
+      <p class="tag">Vocal &amp; Raga Training</p>
+      <h1>Build Steady Pitch, Breath &amp; <span>Expressive Singing</span></h1>
+      <p class="lead">
+        Practical vocal coaching covering Tanpura shruti alignment, alankar drills,
+        breath control, and expressive song phrasing.
+      </p>
+      <div class="hero-buttons">
+        <a href="#trial" class="btn">Book Free Trial</a>
+        <a href="#courses" class="btn-outline">View Courses</a>
+      </div>
+    </section>
+
+    <section id="courses" class="section-box">
+      <h2>Courses</h2>
+      <div class="card-grid">
+        <article class="card">
+          <h3>Hindustani Classical</h3>
+          <p>Focus on pure shruti, alankars, raga movement, and steady breath over Tanpura.</p>
+        </article>
+        <article class="card">
+          <h3>Playback &amp; Phrasing</h3>
+          <p>Work on dynamics, emotional expression, smooth transitions, and clean phrasing.</p>
+        </article>
+        <article class="card">
+          <h3>Breath &amp; Voice Lab</h3>
+          <p>Practice diaphragmatic support, humming, NG resonance, and controlled vibrato.</p>
+        </article>
+      </div>
+    </section>
+
+    <section id="faq" class="section-box">
+      <h2>Frequently Asked Questions</h2>
+      <div class="faq-list">
+        <details class="card">
+          <summary>Do I need prior singing experience?</summary>
+          <p>No. Beginners start with basic pitch matching, posture, and gentle breath exercises.</p>
+        </details>
+        <details class="card">
+          <summary>What do I need for daily practice?</summary>
+          <p>A Tanpura drone app or instrument and 20 to 30 minutes of quiet daily practice.</p>
+        </details>
+        <details class="card">
+          <summary>Are online and batch sessions available?</summary>
+          <p>Yes, morning riyaz, evening student batches, and weekend sessions can be selected in the form.</p>
+        </details>
+      </div>
+    </section>
+
+    <section id="trial" class="section-box">
+      <h2>Book a Trial Session</h2>
+      <form class="card trial-form">
+        <div class="field">
+          <label for="student-name">Full Name</label>
+          <input id="student-name" type="text" required>
+        </div>
+
+        <div class="field">
+          <label for="student-email">Email Address</label>
+          <input id="student-email" type="email" required>
+        </div>
+
+        <div class="field">
+          <label for="student-batch">Preferred Batch</label>
+          <select id="student-batch" required>
+            <option value="">Choose a batch</option>
+            <option value="morning">Morning Riyaz (6:30 AM)</option>
+            <option value="evening">Evening Batch (6:00 PM)</option>
+            <option value="weekend">Weekend Lab (10:00 AM)</option>
+          </select>
+        </div>
+
+        <button type="submit" class="btn">Submit Request</button>
+      </form>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="footer-row">
+      <p><strong>SwarSetu Music Academy</strong> — Pure HTML &amp; CSS Practical Project</p>
+      <a href="#top" class="footer-link">Back to Top</a>
+    </div>
+  </footer>
+</body>
+</html>
