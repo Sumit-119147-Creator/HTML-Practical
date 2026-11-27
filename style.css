@@ -1,256 +1,521 @@
+/* =========================================================
+   SwarSetu Music Academy — Shared Stylesheet
+   Theme: Warm Acoustic Conservatory (Pure CSS3, Zero JS)
+   ========================================================= */
+
 :root {
-  --bg: #060a12;
-  --surface: #0c1424;
-  --surface-soft: #111d33;
-  --cyan: #00f0ff;
-  --aqua: #00d2b4;
-  --text: #f1f5f9;
-  --muted: #94a3b8;
-  --radius: 12px;
+  --bg-parchment: #fbf8f3;
+  --bg-sand: #f3ede2;
+  --text-charcoal: #1f1c18;
+  --text-muted: #5c554b;
+  --accent-terracotta: #b84a27;
+  --accent-terracotta-dark: #93381b;
+  --border-warm: #dcd2c0;
+  --radius-sm: 6px;
+  --radius-md: 10px;
+  --radius-lg: 14px;
 }
 
-html {
-  scroll-behavior: smooth;
+/* Base Reset & Typography */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
 }
 
 body {
-  /* Layer a dark gradient over an optional copyright-free local image (studio-bg.jpg) */
-  background-color: var(--bg);
-  background-image:
-    linear-gradient(180deg, rgba(6, 10, 18, 0.88), rgba(6, 10, 18, 0.96)),
-    url("studio-bg.jpg");
-  background-size: cover;
-  background-position: center;
-  background-attachment: fixed;
-  color: var(--text);
-  font-family: sans-serif;
-  line-height: 1.6;
   margin: 0;
-  padding: 0 1.25rem 3rem;
+  background-color: var(--bg-parchment);
+  color: var(--text-charcoal);
+  font-family: system-ui, -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  font-size: clamp(1rem, 0.95rem + 0.25vw, 1.125rem);
+  line-height: 1.65;
 }
 
-main,
-.site-header,
-.site-footer {
-  max-width: 960px;
-  margin-inline: auto;
-}
-
-a {
-  color: inherit;
-  text-decoration: none;
-}
-
-/* Flexbox for header and footer alignment */
-.site-header {
-  border-bottom: 1px solid var(--surface-soft);
-  margin-bottom: 2.5rem;
-}
-
-.nav-row,
-.footer-row,
-.hero-buttons {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  flex-wrap: wrap;
-  gap: 1rem;
-  padding-block: 1rem;
-}
-
-.hero-buttons {
-  justify-content: flex-start;
-  padding-block: 0;
-}
-
-.nav-links {
-  display: flex;
-  align-items: center;
-  flex-wrap: wrap;
-  gap: 1.25rem;
-}
-
-.nav-links a:not(.btn),
-.footer-link {
-  color: var(--muted);
-  transition: color 0.25s ease;
-}
-
-.nav-links a:not(.btn):hover,
-.footer-link:hover {
-  color: var(--cyan);
-}
-
-.brand {
-  font-size: 1.25rem;
-  font-weight: bold;
-}
-
-.brand span {
-  color: var(--cyan);
-}
-
-/* Hero & Section Spacing */
-.hero {
-  background: var(--surface);
-  padding: 2rem;
-  border-radius: var(--radius);
-  margin-bottom: 2.5rem;
-}
-
-.tag {
-  color: var(--aqua);
-  font-size: 0.85rem;
-  font-weight: bold;
-  text-transform: uppercase;
+h1,
+h2,
+h3 {
+  font-family: Georgia, "Times New Roman", serif;
+  font-weight: 700;
+  line-height: 1.25;
+  color: var(--text-charcoal);
   margin-top: 0;
 }
 
 h1 {
-  font-size: 2.2rem;
-  line-height: 1.2;
-  margin-top: 0.4rem;
+  font-size: clamp(2rem, 1.5rem + 2.4vw, 3.2rem);
+  margin-bottom: 0.75rem;
 }
 
-h1 span {
-  color: var(--cyan);
+h2 {
+  font-size: clamp(1.5rem, 1.25rem + 1.1vw, 2.15rem);
+  margin-bottom: 0.75rem;
+}
+
+h3 {
+  font-size: clamp(1.2rem, 1.1rem + 0.4vw, 1.4rem);
+  margin-bottom: 0.5rem;
+}
+
+p {
+  margin-top: 0;
+  margin-bottom: 1rem;
+  color: var(--text-muted);
+}
+
+strong {
+  color: var(--text-charcoal);
+}
+
+a {
+  color: var(--accent-terracotta);
+  text-decoration: none;
+  transition: color 0.2s ease, background-color 0.2s ease, border-color 0.2s ease;
+}
+
+a:hover {
+  color: var(--accent-terracotta-dark);
+}
+
+/* =========================================================
+   Header & Flexbox Navigation
+   ========================================================= */
+.site-header {
+  max-width: 1180px;
+  margin: 0 auto;
+  padding: clamp(1rem, 2vw, 1.5rem) clamp(1rem, 4vw, 2.5rem);
+  border-bottom: 1px solid var(--border-warm);
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1rem;
+}
+
+.brand {
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: clamp(1.25rem, 1.1rem + 0.6vw, 1.55rem);
+  font-weight: 700;
+  color: var(--text-charcoal);
+}
+
+.brand span {
+  display: block;
+  font-family: system-ui, -apple-system, "Segoe UI", sans-serif;
+  font-size: 0.78rem;
+  font-weight: 500;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+}
+
+.brand:hover {
+  color: var(--accent-terracotta);
+}
+
+.main-nav {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.main-nav a {
+  padding: 0.5rem 0.9rem;
+  border-radius: var(--radius-sm);
+  color: var(--text-charcoal);
+  font-weight: 500;
+}
+
+.main-nav a:hover,
+.main-nav a.active {
+  background-color: var(--bg-sand);
+  color: var(--accent-terracotta);
+}
+
+.main-nav a.nav-cta {
+  background-color: var(--accent-terracotta);
+  color: #fbf8f3;
+}
+
+.main-nav a.nav-cta:hover,
+.main-nav a.nav-cta.active {
+  background-color: var(--accent-terracotta-dark);
+  color: #fbf8f3;
+}
+
+/* =========================================================
+   Main Layout & Sections
+   ========================================================= */
+main {
+  max-width: 1180px;
+  margin: 0 auto;
+  padding: clamp(1.5rem, 4vw, 3rem) clamp(1rem, 4vw, 2.5rem);
+}
+
+.hero,
+.page-header {
+  padding-bottom: clamp(1.5rem, 3vw, 2.5rem);
+  border-bottom: 1px solid var(--border-warm);
+  margin-bottom: clamp(2rem, 4vw, 3.25rem);
+}
+
+.eyebrow {
+  display: inline-block;
+  font-size: 0.85rem;
+  font-weight: 600;
+  letter-spacing: 0.09em;
+  text-transform: uppercase;
+  color: var(--accent-terracotta);
+  margin-bottom: 0.6rem;
 }
 
 .lead {
-  color: var(--muted);
-  max-width: 58ch;
-  margin-bottom: 1.5rem;
+  max-width: 65ch;
+  font-size: clamp(1.05rem, 1rem + 0.35vw, 1.25rem);
+  color: var(--text-muted);
 }
 
-.section-box {
-  margin-bottom: 2.5rem;
+.content-section {
+  margin-bottom: clamp(2.5rem, 5vw, 4rem);
 }
 
-.section-box h2 {
-  margin-bottom: 1rem;
+.section-intro {
+  max-width: 62ch;
+  margin-bottom: 1.75rem;
 }
 
-/* CSS Grid for course cards */
-.card-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-  gap: 1.25rem;
-}
-
-.card {
-  background: var(--surface);
-  padding: 1.25rem;
-  border-radius: var(--radius);
-  transition: transform 0.25s ease, background 0.25s ease;
-}
-
-.card:hover {
-  transform: translateY(-4px);
-  background: var(--surface-soft);
-}
-
-.card h3 {
-  margin-top: 0;
-  color: var(--aqua);
-}
-
-.card p {
-  color: var(--muted);
-  margin-bottom: 0;
-}
-
-/* Course detail toggle inside each card */
-.course-detail {
-  margin-top: 0.9rem;
-  padding-top: 0.75rem;
-  border-top: 1px solid var(--surface-soft);
-}
-
-.course-detail summary {
-  color: var(--cyan);
-  font-size: 0.9rem;
-}
-
-/* Buttons with :hover and transition */
-.btn,
-.btn-outline {
-  display: inline-block;
-  padding: 0.65rem 1.2rem;
-  border-radius: 8px;
-  font-weight: bold;
-  border: none;
-  cursor: pointer;
-  transition: transform 0.25s ease, background 0.25s ease, color 0.25s ease;
+/* =========================================================
+   Buttons & Flexbox Hero Actions
+   ========================================================= */
+.hero-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.9rem;
+  margin-top: 1.5rem;
+  margin-bottom: 2rem;
 }
 
 .btn {
-  background: var(--cyan);
-  color: var(--bg);
-}
-
-.btn:hover {
-  background: var(--aqua);
-  transform: translateY(-3px);
-}
-
-.btn-outline {
-  background: var(--surface-soft);
-  color: var(--text);
-}
-
-.btn-outline:hover {
-  color: var(--cyan);
-  transform: translateY(-3px);
-}
-
-/* FAQ <details> Accordions */
-.faq-list {
-  display: grid;
-  gap: 0.9rem;
-}
-
-summary {
-  font-weight: bold;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.75rem 1.4rem;
+  border-radius: var(--radius-sm);
+  font-size: 1rem;
+  font-weight: 600;
   cursor: pointer;
+  border: 1px solid transparent;
+  transition: background-color 0.2s ease, color 0.2s ease, border-color 0.2s ease, transform 0.2s ease;
 }
 
-details p {
-  margin-top: 0.7rem;
+.btn-primary {
+  background-color: var(--accent-terracotta);
+  color: #fbf8f3;
 }
 
-/* Trial Form */
+.btn-primary:hover {
+  background-color: var(--accent-terracotta-dark);
+  color: #fbf8f3;
+  transform: translateY(-1px);
+}
+
+.btn-secondary {
+  background-color: var(--bg-sand);
+  color: var(--text-charcoal);
+  border-color: var(--border-warm);
+}
+
+.btn-secondary:hover {
+  background-color: #e9e0d0;
+  color: var(--text-charcoal);
+  transform: translateY(-1px);
+}
+
+/* =========================================================
+   Feature Image Sizing (academy.jpg)
+   HOW IMAGE SIZING WORKS WHEN YOU ADD "academy.jpg":
+   - width: 100% makes the image fill its container smoothly on any screen.
+   - aspect-ratio: 16 / 9 keeps a balanced widescreen proportion without distortion.
+   - max-height: 460px stops the photo from becoming overly tall on large monitors.
+   - object-fit: cover crops excess edges neatly instead of stretching the image.
+   - background-color + border show a clean warm frame even before the photo is added.
+   ========================================================= */
+.feature-img {
+  display: block;
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  max-height: 460px;
+  object-fit: cover;
+  border-radius: var(--radius-lg);
+  border: 1px solid var(--border-warm);
+  background-color: var(--bg-sand);
+  margin-bottom: 1.75rem;
+}
+
+/* =========================================================
+   CSS Grid Cards
+   ========================================================= */
+.card-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: clamp(1rem, 2.5vw, 1.75rem);
+}
+
+.course-grid {
+  align-items: start;
+}
+
+.card {
+  background-color: var(--bg-sand);
+  border: 1px solid var(--border-warm);
+  border-radius: var(--radius-md);
+  padding: clamp(1.25rem, 2.5vw, 1.75rem);
+  transition: border-color 0.2s ease, transform 0.2s ease;
+}
+
+.card:hover {
+  border-color: var(--accent-terracotta);
+  transform: translateY(-2px);
+}
+
+.card h2 {
+  font-size: clamp(1.25rem, 1.15rem + 0.4vw, 1.45rem);
+}
+
+.badge {
+  display: inline-block;
+  font-size: 0.78rem;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  color: var(--accent-terracotta);
+  background-color: var(--bg-parchment);
+  border: 1px solid var(--border-warm);
+  border-radius: var(--radius-sm);
+  padding: 0.2rem 0.6rem;
+  margin-bottom: 0.85rem;
+}
+
+.course-meta {
+  font-size: 0.92rem;
+  padding-top: 0.5rem;
+  border-top: 1px solid var(--border-warm);
+}
+
+.card-link {
+  margin-bottom: 0;
+  font-weight: 600;
+}
+
+/* =========================================================
+   Expandable <details> Syllabus & FAQ Notes
+   ========================================================= */
+.syllabus-note {
+  margin-top: 1rem;
+  background-color: var(--bg-parchment);
+  border: 1px solid var(--border-warm);
+  border-radius: var(--radius-sm);
+  padding: 0.75rem 1rem;
+  transition: border-color 0.2s ease;
+}
+
+.syllabus-note:hover {
+  border-color: var(--accent-terracotta);
+}
+
+.syllabus-note summary {
+  font-weight: 600;
+  color: var(--accent-terracotta);
+  cursor: pointer;
+  padding: 0.25rem 0;
+  transition: color 0.2s ease;
+}
+
+.syllabus-note summary:hover {
+  color: var(--accent-terracotta-dark);
+}
+
+.syllabus-note p {
+  font-size: 0.95rem;
+  margin-top: 0.65rem;
+  margin-bottom: 0.35rem;
+}
+
+.faq-list .syllabus-note {
+  margin-top: 0;
+  margin-bottom: 0.9rem;
+}
+
+/* =========================================================
+   CTA Banner
+   ========================================================= */
+.cta-banner {
+  background-color: var(--bg-sand);
+  border: 1px solid var(--border-warm);
+  border-radius: var(--radius-lg);
+  padding: clamp(1.5rem, 3.5vw, 2.5rem);
+  text-align: center;
+}
+
+.cta-banner p {
+  max-width: 55ch;
+  margin-inline: auto;
+  margin-bottom: 1.5rem;
+}
+
+/* =========================================================
+   Trial Registration Form
+   ========================================================= */
 .trial-form {
-  display: grid;
-  gap: 1rem;
-  max-width: 520px;
+  max-width: 680px;
+  background-color: var(--bg-sand);
+  border: 1px solid var(--border-warm);
+  border-radius: var(--radius-lg);
+  padding: clamp(1.5rem, 3.5vw, 2.5rem);
 }
 
-.trial-form:hover {
-  transform: none;
+.form-field {
+  margin-bottom: 1.25rem;
 }
 
-.field {
-  display: grid;
-  gap: 0.35rem;
+.form-field label {
+  display: block;
+  font-weight: 600;
+  color: var(--text-charcoal);
+  margin-bottom: 0.4rem;
 }
 
-label {
+.form-field input,
+.form-field select {
+  width: 100%;
+  padding: 0.75rem 0.9rem;
+  font-family: inherit;
+  font-size: 1rem;
+  color: var(--text-charcoal);
+  background-color: var(--bg-parchment);
+  border: 1px solid var(--border-warm);
+  border-radius: var(--radius-sm);
+  transition: border-color 0.2s ease;
+}
+
+.form-field input:hover,
+.form-field select:hover,
+.form-field input:focus,
+.form-field select:focus {
+  border-color: var(--accent-terracotta);
+  outline: 2px solid transparent;
+}
+
+.form-actions {
+  margin-top: 1.5rem;
+  margin-bottom: 0.75rem;
+}
+
+.form-note {
   font-size: 0.9rem;
-  font-weight: bold;
+  margin-bottom: 0;
 }
 
-input,
-select {
-  padding: 0.65rem 0.8rem;
-  border-radius: 8px;
-  border: 1px solid var(--surface-soft);
-  background: var(--bg);
-  color: var(--text);
+/* =========================================================
+   Flexbox Footer Rows
+   ========================================================= */
+.site-footer {
+  max-width: 1180px;
+  margin: 0 auto;
+  padding: clamp(1.5rem, 3vw, 2.25rem) clamp(1rem, 4vw, 2.5rem);
+  border-top: 1px solid var(--border-warm);
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1rem 2rem;
+}
+
+.site-footer p {
+  margin: 0;
   font-size: 0.95rem;
 }
 
-.site-footer {
-  border-top: 1px solid var(--surface-soft);
-  color: var(--muted);
-  font-size: 0.9rem;
+.footer-nav {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.footer-nav a {
+  color: var(--text-muted);
+  font-size: 0.95rem;
+}
+
+.footer-nav a:hover {
+  color: var(--accent-terracotta);
+}
+
+.copyright {
+  width: 100%;
+  padding-top: 1rem;
+  border-top: 1px solid var(--border-warm);
+  font-size: 0.88rem;
+}
+
+/* =========================================================
+   Media Query: Mobile Screens (max-width: 720px)
+   ========================================================= */
+@media (max-width: 720px) {
+  .site-header {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .main-nav {
+    width: 100%;
+  }
+
+  .hero-actions .btn,
+  .form-actions .btn {
+    width: 100%;
+  }
+
+  .site-footer {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+}
+
+/* =========================================================
+   Media Query: Projectors & Interactive Smartboards (min-width: 1400px)
+   Ensures generous touch targets (min-height: 44px) and clear classroom readability.
+   ========================================================= */
+@media (min-width: 1400px) {
+  body {
+    font-size: 1.18rem;
+  }
+
+  .site-header,
+  main,
+  .site-footer {
+    max-width: 1360px;
+  }
+
+  .main-nav a,
+  .footer-nav a,
+  .btn,
+  .syllabus-note summary,
+  .form-field input,
+  .form-field select {
+    min-height: 44px;
+    display: inline-flex;
+    align-items: center;
+  }
+
+  .syllabus-note summary {
+    display: list-item;
+    padding-top: 0.65rem;
+    padding-bottom: 0.65rem;
+  }
+
+  .form-field input,
+  .form-field select {
+    display: block;
+  }
 }
